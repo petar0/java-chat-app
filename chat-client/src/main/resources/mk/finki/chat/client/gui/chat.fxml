@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mk.finki.chat.client.gui.ChatController">
+   <children>
+      
+      <!-- LOGIN SCREEN -->
+      <VBox fx:id="loginBox" alignment="CENTER" spacing="15.0" StackPane.alignment="CENTER">
+         <children>
+            <Label text="Java Chat App">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label text="Внесете го вашето корисничко име за да се најавите:" />
+            <TextField fx:id="usernameField" maxWidth="300.0" onAction="#onLogin" promptText="Корисничко име..." />
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#onLogin" prefWidth="150.0" text="Најави се" />
+            <Label fx:id="loginErrorLabel" textFill="#e41a1a" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+
+      <!-- CHAT SCREEN -->
+      <VBox fx:id="chatBox" prefHeight="200.0" prefWidth="100.0" visible="false">
+         <children>
+            <HBox VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextArea fx:id="chatArea" editable="false" focusTraversable="false" wrapText="true" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefWidth="200.0">
+                     <children>
+                        <Label text="Онлајн Корисници">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ListView fx:id="usersList" VBox.vgrow="ALWAYS" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox spacing="10.0">
+               <children>
+                  <TextField fx:id="messageField" onAction="#onSendMessage" promptText="Напишете порака (или @корисник за приватно)..." HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="sendButton" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="30.0" prefWidth="100.0" text="Испрати" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+
+   </children>
+</StackPane>
