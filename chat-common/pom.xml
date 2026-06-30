@@ -13,5 +13,11 @@
     <artifactId>chat-common</artifactId>
     <name>chat-common</name>
     <description>Shared models, protocol and exceptions used by both server and client.</description>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.14.0</version>
+        </dependency>
+    </dependencies>
 </project>
