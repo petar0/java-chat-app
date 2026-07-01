@@ -1,43 +1,68 @@
 # Java Chat Application
 
-> Real-time chat апликација изградена од нула со Java Sockets, Multithreading и JavaFX.
+> Real-time chat апликација изградена од нула со Java Sockets, 
+> Multithreading и JavaFX.
 
-**Статус:** 🚧 Во развој — V1 (MVP)
+**Статус:** ✅ V1 MVP завршен
+
+## Screenshots
+
+_(додади screenshots тука откако ќе ги направиш)_
 
 ## Архитектура
 
 Multi-module Maven проект:
 
-- `chat-common` — споделени модели и протокол (server ↔ client)
-- `chat-server` — headless TCP сервер, multithreaded
-- `chat-client` — JavaFX desktop клиент
-
-Детален architecture dijagram доаѓа откако ќе има реални класи за прикажување.
+- `chat-common` — споделени модели и JSON протокол (Gson)
+- `chat-server` — headless TCP сервер, multithreaded (ExecutorService)
+- `chat-client` — JavaFX desktop клиент + конзолен клиент за тестирање
 
 ## Технологии
 
 - Java 21
 - Maven (multi-module)
-- Socket Programming & Multithreading
+- TCP Socket Programming
+- Multithreading (ExecutorService thread pool)
+- JSON протокол (Gson)
 - JavaFX (GUI)
-- MySQL + JDBC (V3)
+- MySQL + JDBC (V3 — во план)
 
 ## Стартување
 
+### Барања
+- Java 21+
+- Maven 3.8+
+
 ### Сервер
-1. Отвори `ChatServer.java` (модул `chat-server`)
-2. Стартувај го `main()` методот
-3. Конзолата треба да покаже: `Chat серверот слуша на порта 5000...`
+```bash
+cd chat-server
+mvn exec:java -Dexec.mainClass="mk.finki.chat.server.ChatServer"
+```
+Или директно во IntelliJ: отвори `ChatServer.java` → стартувај `main()`
+
+Конзолата покажува: `Chat серверот слуша на порта 5000...`
 
 ### Клиент
-_(доаѓа во следниот чекор - привремен конзолен клиент за тестирање, потоа JavaFX)_
+Отвори нов IntelliJ прозорец → стартувај го клиентот
+
+## Функционалности (V1 MVP)
+
+- ✅ Login со username
+- ✅ Real-time chat (broadcast)
+- ✅ Приватни пораки
+- ✅ Online корисници листа
+- ✅ Join/Leave известувања
+- ✅ Timestamps на пораки
+- ✅ JavaFX GUI клиент
 
 ## Roadmap
 
-- [ ] **V1 — MVP**: login, real-time chat, online users листа, приватни пораки, timestamps, join/leave известувања
-- [ ] **V2**: chat rooms, emoji, dark/light тема
-- [ ] **V3**: registracija, password hashing, MySQL persistencija, message history
+- ✅ **V1** — MVP (завршен)
+- [ ] **V2** — Chat rooms, emoji, dark/light тема
+- [ ] **V3** — Регистрација, BCrypt hashing, MySQL, message history
 
 ## Развој
 
-Овој проект се гради чекор по чекор, со fokus на чиста архитектура наместо брз "working demo". Секој commit одговара на еден логички чекор од развојот.
+Проектот е граден инкрементално со focus на чиста архитектура:
+`chore: skeleton` → `feat: models` → `feat: protocol` → 
+`feat: server` → `feat: V1 MVP`
