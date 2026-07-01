@@ -5,10 +5,6 @@
 
 **Статус:** ✅ V1 MVP завршен
 
-## Screenshots
-
-_(додади screenshots тука откако ќе ги направиш)_
-
 ## Архитектура
 
 Multi-module Maven проект:
